@@ -7,11 +7,11 @@ services:
         limits:
           memory: 100M
     ports:
-      - "8300:8300"
-      - "8400:8400"
-      - "8500:8500"
-      - "8501:8501"
-      - "8600:8600"
+      - '8300:8300'
+      - '8400:8400'
+      - '8500:8500'
+      - '8501:8501'
+      - '8600:8600'
   rabbitmq:
     build: ./rabbitmq
     deploy:
@@ -19,8 +19,8 @@ services:
         limits:
           memory: 256M
     ports:
-      - "5672:5672"
-      - "15672:15672"
+      - '5672:5672'
+      - '15672:15672'
   keycloak:
     image: jboss/keycloak:3.1.0.Final
     environment:
@@ -31,7 +31,7 @@ services:
         limits:
           memory: 512M
     ports:
-      - "8080:8080"
+      - '8080:8080'
   postgres:
     build: postgres
     environment:
@@ -42,4 +42,14 @@ services:
         limits:
           memory: 512M
     ports:
-      - "5432:5432"
+      - '5432:5432'
+  dynomite:
+    image: v1r3n/dynomite
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    ports:
+      - 8102:8102
+      - 22122:22122
+      - 22222:22222
